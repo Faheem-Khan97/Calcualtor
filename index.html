@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calci</title>
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+    <section class="grid-calci">
+        <h1>Calculator</h1>
+        <input type="text" id="numInput">
+
+        <div class="buttons">
+            <button class="button" onclick = "buttonClicked(event)">9</button>
+            <button class="button" onclick = "buttonClicked(event)">8</button>
+            <button class="button" onclick = "buttonClicked(event)">7</button>
+            <button class="button" onclick = "opClicked(event)">+</button>
+        </div>
+        <div class="buttons">
+            <button class="button" onclick = "buttonClicked(event)">6</button>
+            <button class="button" onclick = "buttonClicked(event)">5</button>
+            <button class="button" onclick = "buttonClicked(event)">4</button>
+            <button class="button" onclick = "opClicked(event)">-</button>
+        </div>
+        <div class="buttons">
+            <button class="button" onclick = "buttonClicked(event)">3</button>
+            <button class="button" onclick = "buttonClicked(event)">2</button>
+            <button class="button" onclick = "buttonClicked(event)">1</button>
+            <button class="button" onclick = "opClicked(event)">*</button>
+        </div>
+        <div class="buttons">
+            <button class="button" onclick = "buttonClicked(event)">.</button>
+            <button class="button" onclick = "buttonClicked(event)">0</button>
+            <button class="button" onclick = "opClicked(event)">/</button>
+            <button class="button" onclick = "returnClicked(event)">=</button>
+        </div>
+
+        <button type="reset" id="clear">
+                CLEAR
+        </button>
+
+    </section>
+    <script>
+
+    let input = document.querySelector('#numInput');
+    let resetButton = document.querySelector('#clear');
+    let firstNum ;
+    let secNum;
+    let opbool = true;
+    
+    resetButton.addEventListener('click', () => {
+
+        window.location.href = 'index.html';
+
+    });
+
+    function buttonClicked(e){
+        e.preventDefault();
+
+    if(opbool == true){
+
+        if(firstNum == undefined){
+            firstNum = e.target.outerText;
+            input.value = e.target.outerText;
+        }
+            
+        else{
+            firstNum += e.target.outerText;
+            input.value += e.target.outerText;;
+        }
+    }
+
+
+    else{
+        if(secNum == undefined){
+            secNum = e.target.outerText;
+            input.value += e.target.outerText;
+            
+        }
+            
+        else{
+            secNum += e.target.outerText;
+            input.value += e.target.outerText;
+
+
+        }
+        console.log(secNum)
+
+    }
+    //console.log(firstNum, secNum);
+
+    }
+    
+    let operator;
+   
+    function opClicked(e){
+        e.preventDefault();
+        console.log("inside operator");
+
+        opbool = false;
+        operator = e.target.outerText;
+        input.value += " "+ operator + " ";
+
+    }
+
+    let res = 0;
+
+    function returnClicked(e){
+        e.preventDefault();
+
+        console.log("inside ====");
+        if(operator == "+"){
+
+            res = Number(firstNum)+ Number(secNum);
+        }
+
+        if(operator == "-"){
+
+        res = Number(firstNum) - Number(secNum);
+        }
+        if(operator == "*"){
+
+            res = Number(firstNum) * Number(secNum);
+        }
+        if(operator == "/"){
+
+        res = Number(firstNum)/ Number(secNum);
+        }
+
+        input.value += " = " + res; 
+    }
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    width: 100%;
+
+    background: linear-gradient(to right, rgb(78, 123, 207) , rgb(125, 207, 125));
+    text-align: center;
+    padding: 5vh 0px;
+}
+
+section.grid-calci{
+
+
+    width: 40%;
+    margin: auto auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 15px;
+    grid-row-gap: 20px;
+    background: linear-gradient(to right, rgb(78, 123, 207) , rgb(125, 207, 125));
+
+    padding: 3vh 5%;
+    border-radius: 10px;
+
+}
+section.grid-calci h1{
+
+    font-weight: bold;
+
+    font-size: 45px;
+    background: -webkit-linear-gradient(rgb(255, 255, 255), rgb(255, 42, 42));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: Arial, Helvetica, sans-serif
+}
+section.grid-calci input{
+    
+    padding: 2vh 3px;
+    font-size: 22px;
+    color: rgb(58, 233, 180);
+    border-radius: 5px;
+    border: none;
+
+    
+}
+section.grid-calci input:focus{
+    
+    outline: none;
+
+    
+}
+
+
+div.buttons{
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 15px;
+    grid-row-gap: 20px;
+    
+}
+section button{
+
+    padding: 8px 10px;
+    background: linear-gradient(to right, rgb(78, 123, 207) , rgb(125, 207, 125));
+    color: rgb(255, 255, 255);
+    border: 1px solid white;
+    font-size: 20px;
+    border-radius: 5px;
+}
+section button:focus{
+    outline: none;
+}
